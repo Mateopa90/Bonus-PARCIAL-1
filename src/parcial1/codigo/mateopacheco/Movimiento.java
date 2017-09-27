@@ -50,13 +50,21 @@ public class Movimiento {
         this.cantidad = cantidad;
     }
     
-    public void DoConsignacion (){
+    public double DoConsignacion (double Dinero_ingresado){
         System.out.println("HACIENDO Consignacion...");
         System.out.println("CONSIGNACION FINALIZADA.");
+        double consignacion = Saldo_Presedente + Dinero_ingresado;
+        System.out.println("Hizo una consignacion de: "+ Dinero_ingresado);
+        System.out.println("Saldo actual es: ");
+        return consignacion;
     }
     
-    public void DoRetiro (){
+    public double DoRetiro (double Dinero_retirado){
         System.out.println("HACIENDO RETIRO...");
         System.out.println("RETIRO FINALIZADO.");
+        double retiro = Saldo_Presedente - Dinero_retirado;
+        System.out.println("Hizo un retiro de:"+ Dinero_retirado);
+        System.out.println("Saldo actual es: ");
+        return retiro;
     }
 }

@@ -30,5 +30,31 @@ public class Banco {
         this.Codigo = Codigo;
     }
     
+    public boolean addCuenta(int No_Cuenta, double Saldo_Cuenta, String Fecha_Creacion, String Nombre_Cliente){
+       Cuenta Cuentas = new Cuenta(No_Cuenta, Saldo_Cuenta, Fecha_Creacion, Nombre_Cliente);
+       if(this.Cuentas.add(Cuentas))
+           return true;
+       else 
+           return false;
     
+    }
+    
+    public ArrayList<Cuenta> listarCuentas(){
+        return (ArrayList)this.Cuentas;
+    }
+    
+    public ArrayList<Tipo> listartipos(){
+      return this.Tipos;
+    }
+    
+    public void DoConsignacion(Double Consigacion, String Fecha, double Saldo_Presedente, double cantidad, Tipo tipo){
+        Movimiento mov = new Movimiento(Fecha, Saldo_Presedente, cantidad, tipo);
+        mov.DoConsignacion(Consigacion);
+    }
+    
+    public void DoRetiro(Double Retiro, String Fecha, double Saldo_Presedente, double cantidad, Tipo tipo){
+        Movimiento mov = new Movimiento(Fecha, Saldo_Presedente, cantidad, tipo);
+        mov.DoRetiro(Retiro);
+    }
+ 
 }
